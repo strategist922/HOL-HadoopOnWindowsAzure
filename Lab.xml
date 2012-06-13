@@ -16,6 +16,6 @@
   <Source>.\source</Source>
   <DependencyChecker>.\source\Setup\Dependencies.depi</DependencyChecker>
   <CustomProperties>    
-	<Property Name="GitHubRepository" Value="https://github.com/WindowsAzure-TrainingKit/WindowsAzure-TrainingKit/HOL-HadoopOnWindowsAzure" />
+	<Property Name="GitHubRepository" Value="https://github.com/WindowsAzure-TrainingKit/HOL-HadoopOnWindowsAzure" />
   </CustomProperties>
 </Lab>    
