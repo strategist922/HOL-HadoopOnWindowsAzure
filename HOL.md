@@ -62,7 +62,7 @@ In this exercise, you will request a new Hadoop cluster through the Hadoop on Wi
 	_Requesting a new cluster_
 
 
-1. The process will take a few moments.  While your cluster is requested, you will see the **Allocation in progress** message.
+1. The process will take a few minutes.  While your cluster is requested, you will see the **Allocation in progress** message.
 
 	![Cluster allocation in progress](images/cluster-allocation-in-progress.png?raw=true "Cluster allocation in progress")
 
@@ -78,7 +78,9 @@ In this exercise, you will learn how to execute a simple Java MapReduce program 
 
 In this task, you will deploy and execute the Pi Estimator sample, available in the Hadoop on Windows Azure portal.
 
-1. From your **Account** page, click on the **Create Job** icon in the **Your Tasks** section. This brings up the **Create Job** UI.
+1. From your **Account** page, click on the **Create Job** icon in the **Your Tasks** section.
+
+1. This brings up the **Create Job** UI.
 
 	![CreateJobUI](images/createjobui.png?raw=true "The Create Job UI")
 
@@ -89,6 +91,10 @@ In this task, you will deploy and execute the Pi Estimator sample, available in 
 1. To see a simple example of how this interface is used to run the MapReduce job, let's look at the Pi Estimator sample. Return to your **Account** page. Scroll down to the **Samples** icon in the **Manage your account** section and click on it. 
 
 1. From your **Account** page, scroll down to the **Samples** icon in the **Manage your account** section and click on it.   
+
+	![Selecting Samples](images/account-page-samples.png?raw=true "Selecting Samples")
+
+	_Selecting Samples_
 
 1. Click on the **Pi Estimator** sample icon in the Hadoop Sample Gallery.
 
@@ -130,17 +136,25 @@ In this exercise, you will learn how to run a MapReduce job with a  query using 
 
 In this task, you will deploy and execute the WordCount sample available in the portal.
 
-1. First we need to download a copy of the WordCount.js script to your local machine. We need it to be stored locally to upload it the cluster. Right-click [here](http://isoprodstore.blob.core.windows.net/isotopectp/examples/WordCount.js "JavaScript.js") and save a copy of the WordCount.js file to your local ../downloads directory. In addition we need to download the _The Notebooks of Leonardo Da Vinci_ file, available [here](http://isoprodstore.blob.core.windows.net/isotopectp/examples/davinci.txt). 
+1. First we need to download a copy of the WordCount.js script to your local machine. We need to store it locally before we upload it to the cluster. Right-click [here](http://isoprodstore.blob.core.windows.net/isotopectp/examples/WordCount.js "WordCount.js") and save a copy of the WordCount.js file to your local ../downloads directory. In addition we need to download the _The Notebooks of Leonardo Da Vinci_ file, available [here](http://isoprodstore.blob.core.windows.net/isotopectp/examples/davinci.txt). 
 
 1. To get to the Interactive JavaScript console, return to your [Account](https://www.hadooponazure.com/Account) page. Scroll down to the **Your Cluster** section and click on the **Interactive Console** icon to bring up the [Interactive JavaScript console](https://www.hadooponazure.com/Cluster/InteractiveJS).
+
+	![Selecting the Interactive Console](images/selecting-interactive-console.png?raw=true "Selecting the Interactive Console")
+
+	_Selecting the Interactive Console_
 
 	![The Interactive JavaScript console](images/the-interactive-javascript-console.png?raw=true "The Interactive JavaScript console")
 
 	_The Interactive JavaScript console_
 
-1. To upload the JavaScript.js file to the cluster, enter the upload command `fs.put()` at the js> console and select the Wordcount.js from your downloads folder, for the Destination parameter use **./WordCount.js/**.
+1. To upload the WordCount.js file to the cluster, enter the upload command `fs.put()` at the **js>** console and select the WordCount.js from your downloads folder, for the Destination parameter use **./WordCount.js/**.
 
-	![Uploading the WordCount.js file](images/uploading-the-wordcountjs-file.png?raw=true "Uploading the WordCOunt.js file")	
+	![Running Commands from the JavaScript Console](images/running-command-from-jsconsole.png?raw=true "Running Commands from the JavaScript Console")
+
+	_Running Commands from the JavaScript Console_
+
+	![Uploading the WordCount.js file](images/uploading-the-wordcountjs-file.png?raw=true "Uploading the WordCount.js file")	
 
 	_Uploading the WordCount.js file_
 
@@ -151,7 +165,11 @@ In this task, you will deploy and execute the WordCount sample available in the 
 	`
 pig.from("/example/data/davinci.txt").mapReduce("WordCount.js", "word, count:long").orderBy("count DESC").take(10).to("DaVinciTop10Words")`
 
-1. Scroll to the right and click on **view log** if you want to observe the details of the job's progress. This log will also provide diagnostics if the job fails to complete. 
+1. Scroll to the right and click on **View Log** if you want to observe the details of the job's progress. This log will also provide diagnostics if the job fails to complete. 
+
+	![View Log](images/javascript-console-show-log.png?raw=true "View Log")
+
+	_View Log_
 
 1. To display the results in the DaVinciTop10Words directory once the job completes, use the `file = fs.read("DaVinciTop10Words")`	command at the **js>** prompt.
 
@@ -197,13 +215,17 @@ In this task, you will subscribe to crime data in the Windows Azure Marketplace,
 
 1. Click on the **Data** menu icon in the middle of the menu bar near the top of the page. Enter "crime" into the search the marketplace box on the upper right of the page and **Enter**.
 
-1. Select the 2006-2008 Crime in the United States (Data.gov) date.
+	![Searching for Crime Data](images/searching-crime-data.png?raw=true "Searching for Crime Data")
 
-	![Searching for crime data](images/searching-for-crime-data.png?raw=true "Searching for crime data")
+	_Searching for Crime Data_
 
-	_Searching for crime data_
+1. Select the **2006-2008 Crime in the United States (Data.gov)** data.
 
-1. Press the **SUBSCRIBE** button on the right side of the page. Note that there is no cost for subscribing. Agree to the conditions on the Sign Up page and click the **Sign Up** button.
+	![Selecting Crime Data](images/selecting-crime-data.png?raw=true "Selecting Crime Data")
+
+	_Selecting Crime Data_
+
+1. Press the **SIGN UP** button on the right side of the page. Note that there is no cost for subscribing. Agree to the conditions on the Sign Up page and click the **Sign Up** button.
 
 	![Subscribing to crime data](images/subscribing-to-crime-data.png?raw=true "Subscribing to crime data")
 
@@ -256,7 +278,7 @@ In this task, you will use the query you built in the previous task to import da
 
 	_Importing data from the Windows Azure Marketplace_
 
-1. The progress made importing is reported on the Data Market Import page that appears.  Wait a few moments until the process finishes.
+1. The progress made importing is reported on the Data Market Import page that appears.  Wait a few minutes until the process finishes.
 
 	![Importing-data-progress](images/importing-data-progress.png?raw=true "Importing data progress")
 
@@ -268,21 +290,25 @@ In this task, you will use the query you built in the previous task to import da
 
 In this task, you will query the imported data in the previous task using the Interactive Hive console.
 
-1. When the import task completes, return to your Account page and select the **Interactive Console** icon from the **Your Cluster** section. Then press the **Hive** option on the console page.
+1. When the import task completes, return to your Account page and select the **Interactive Console** icon from the **Your Cluster** section. 
 
-	![The Interactive Hive console](images/the-interactive-hive-console.png?raw=true "The Interactive Hive console")
+	![Selecting the Interactive Console](images/selecting-interactive-console.png?raw=true "Selecting the Interactive Console")
 
-	_The Interactive Hive console_
+	_Selecting the Interactive Console_
 
+1. Press the **Hive** option on the console page and enter the following command: 
 
-1. Enter the following command: 
 	````
 	create table crime_results as select city, max(violentcrime) 
 		as maxviolentcrime from crime_data 
 		group by city order by maxviolentcrime desc limit 10
 	````
 
-1. Then press the **Evaluate** button and wait a few moments for the process to finish.
+	![The Interactive Hive console](images/the-interactive-hive-console.png?raw=true "The Interactive Hive console")
+
+	_The Interactive Hive console_
+
+1. Press the **Evaluate** button and wait a few moments for the process to finish.
 
 	![Evaluating a Hive query](images/evaluating-a-hive-query.png?raw=true "Evaluating a Hive query")
 
@@ -306,13 +332,25 @@ In this exercise, you will learn how to connect and query data in a cluster usin
 
 In this task, you will configure your cluster, download and install the Hive ODBC driver and Hive Add-in for Excel.
 
-1. Return to your Account page and select the **Open Ports** icon from the **Your Cluster** section to open the Configure Ports page. Open the ODBC Server on port 10000 by clicking on its Toggle button.
+1. Return to your Account page and select the **Open Ports** icon from the **Your Cluster** section to open the Configure Ports page. 
+
+	![Selecting Open Ports Option](images/selecting-the-open-ports-option.png?raw=true "Selecting Open Ports Option")
+
+	_Selecting Open Ports Option_
+
+1. Open the ODBC Server on port 10000 by clicking on its Toggle button.
 
 	![Opening ODBC port 10000](images/opening-odbc-port-10000.png?raw=true "Opening ODBC Port 10000")
 
 	_Opening ODBC port 10000_
 
-1. Return to your Account page and select the **Downloads** icon from the **Manage your account** section and select the appropriate .msi file to install the Hive ODBC drivers and Excel Hive Add-In.
+1. Return to your Account page and select the **Downloads** icon from the **Manage your account** section.
+
+	![Selecting the Downloads Option](images/selecting-the-downloads-option.png?raw=true "Selecting the Downloads Option")
+
+	_Selecting the Downloads Option_
+
+1. Select the appropriate .msi file to install the Hive ODBC drivers and Excel Hive Add-In.
 
 	![Downloading the Hive ODBC driver](images/downloading-hiveodbc.png?raw=true "Downloading the Hive ODBC driver")
 
@@ -336,7 +374,11 @@ In this task, you will configure your cluster, download and install the Hive ODB
 
 	_Hive query builder_
 
-1. Provide a description for your cluster, enter the domain of your cluster for the Host value (you obtain this value from the Account Page) and enter **10000** for the port number. Enter your administrator credentials for your Hadoop on Azure cluster in the Username/Password option in the **Authentication** section. Then click **OK**.
+1. Provide a **Description** for your cluster, enter the domain of your cluster for the **Host** value (you obtain this value from the Account Page) and enter **10000** for the port number. Enter the administrator credentials for your Hadoop on Azure cluster in the **Username/Password** option in the **Authentication** section (the administrator credentials are same you provided on the Getting Started section of this HOL). Then click **OK**.
+
+	![Obtaining cluster url](images/obtaining-cluster-url.png?raw=true "Obtaining cluster url")
+
+	_Obtaining cluster url_
 
 	![Entering cluster details](images/entering-cluster-details.png?raw=true "Entering cluster details")
 
@@ -345,7 +387,7 @@ In this task, you will configure your cluster, download and install the Hive ODB
 <a name="Ex4Task2" />
 #### Task 2 - Querying Data using the Hive Panel ####
 
-In this task, you will connect to and query data using the Hive panel from Excel.
+In this task, you will connect query data using the Hive panel from Excel.
 
 1. From the **Hive Query** panel, select crime_results from **Select the Hive Object to Query** menu. Then check city and maxviolentcrime in the **Columns** section.  
 Click on the HiveQL to reveal the query: 
